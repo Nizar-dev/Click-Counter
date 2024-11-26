@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xmlnx="http://schemas.android.com/tools">
+    <style name="Theme.CustomSplashScreen" parent="Theme.SplashScreen" >
+        <item name="windowSplashScreenAnimatedIcon">@drawable/running_man_</item>
+        <item name="postSplashScreenTheme">@style/Theme.ClickCounter</item>"
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    <style name="Theme.ClickCounter" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
