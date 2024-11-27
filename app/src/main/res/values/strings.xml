@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Click Counter</string>
+    <string name="click_to_increment_the_counter">Click to increment the counter</string>
 </resources>

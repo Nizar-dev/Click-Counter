@@ -5,12 +5,12 @@ converterGson = "2.9.0"
 gson = "2.10.1"
 hiltAndroid = "2.51"
 hiltNavigationCompose = "1.2.0"
-kotlin = "1.9.25"
+kotlin = "2.0.21"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-kotlinGradlePlugin = "1.9.10"
+kotlinGradlePlugin = "2.0.21"
 kotlinxCoroutinesAndroid = "1.8.1"
 kotlinxCoroutinesCore = "1.6.4"
 kotlinxSerializationJson = "1.5.1"
@@ -18,7 +18,7 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.11.00"
 navigationSafeArgsGradlePlugin = "2.8.4"
-navigationUiKtx = "2.8.3"
+navigationUiKtx = "2.8.4"
 okhttp = "5.0.0-alpha.2"
 retrofit = "2.11.0"
 roomRuntime = "2.6.1"
@@ -65,4 +65,5 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
