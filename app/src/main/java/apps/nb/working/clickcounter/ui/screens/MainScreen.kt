@@ -1,55 +1,67 @@
 package apps.nb.working.clickcounter.ui.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import apps.nb.working.clickcounter.IMAGE_URL
 import apps.nb.working.clickcounter.R
+import coil.compose.AsyncImage
 
-@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 internal fun MainScreen(
     modifier: Modifier = Modifier,
     mainViewModel: MainViewModel = hiltViewModel()
 ){
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .clickable(
-                onClick = {
-                    mainViewModel.incrementCounter()
-                }
-            ),
-        contentAlignment = Alignment.Center,
-
-    ){
+    val imageUrl by mainViewModel.sourceImage.collectAsStateWithLifecycle()
+    val counter by mainViewModel.counter.collectAsStateWithLifecycle()
+    Scaffold {
         Column (
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .padding(it)
+                .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Top
         ){
             Text(
-                modifier = modifier.padding(bottom = 16.dp),
-                text = stringResource(R.string.click_to_increment_the_counter),
-                style = MaterialTheme.typography.headlineLarge
+                modifier = modifier.padding( 8.dp),
+                text = stringResource(R.string.introduction),
+                style = MaterialTheme.typography.headlineLarge,
+                textAlign = TextAlign.Center
+            )
+            AsyncImage(
+                modifier = modifier
+                    .size(width = 300.dp, height = 400.dp)
+                    .clickable {
+                        mainViewModel.updateSourceImage()
+                    }
+                    ,
+                contentDescription = stringResource(R.string.random_image),
+                model = imageUrl,
+                contentScale = ContentScale.Crop,
             )
             Text(
-                modifier = modifier.padding(bottom = 16.dp),
-                text = "Number of clicks: ${mainViewModel.counter.value}",
+                modifier = Modifier.padding(bottom = 2.dp),
+                text = "Number of clicks: $counter",
                 style = MaterialTheme.typography.headlineSmall,
             )
+
         }
+
     }
 }

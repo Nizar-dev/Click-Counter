@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Click Counter</string>
-    <string name="click_to_increment_the_counter">Click to increment the counter</string>
+    <string name="click_to_increment_the_counter">Click to increment the counter and see a random image</string>
+    <string name="random_image">Random Image</string>
+    <string name="introduction">Pour optimiser l\'affichage sans latence d\'une photo téléchargée depuis une api Rest, il existe plusieurs stratégies :</string>
+    <string name="manual_loading_description">On utilise une coroutine pour télécharger l\'image en arrière plan avant de l\'afficher dans un composable Image.</string>
+    <string name="stateful_loading_description">Ici on utilise un state pour afficher un loader en cours de téléchargement, un message d\'erreur s\'il y a erreur et la photo si tout se passe bien.</string>
 </resources>

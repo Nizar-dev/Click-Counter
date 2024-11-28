@@ -104,4 +104,6 @@ dependencies {
     implementation (libs.androidx.navigation.ui.ktx.v283)
     implementation (libs.kotlinx.serialization.json)
     implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
+    implementation ("com.google.accompanist:accompanist-drawablepainter:0.33.0-alpha")
+
 }
